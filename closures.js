@@ -103,18 +103,19 @@ var codeEcho = codeFriend();
 
 
 
-function fnCounter(function, N) {
-  var counter =1;
-  function () {
-    if (counter < N){
-      counter++;
-    }
-    else if (N === 11){
-      return STOP;
-    }
-  }
-}
-
+// function fnCounter(function, N) {
+//   var counter = 1;
+//   function () {
+//     if (counter < N){
+//       counter++;
+//       function;
+//     }
+//     else if (N <= 11){
+//       return "STOP";
+//     }
+//   }
+// }
+// fnCounter(function, 10);
 
 /*
   var counter = function(){
@@ -130,29 +131,43 @@ function fnCounter(function, N) {
   funciton is invoked. *Hint: setTimeout calls a function or evaluates an
   expression after a specified number of milliseconds.
 
-    //it will count up to five every
+    //it will count up to five every i times by 1000 milliseconds
 
 
   Now, run the function in your console and note what happpens.
 
   Was your answer right or wrong?
 
-    //Answer Here
+    //It just logged a 6.
 
 
-  Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc) (Note: No unit test for this one because of the timeout)
+  Fix the counter function so that it works the way you expect it to work.
+   (logging 1 then 2 then 3, etc) (Note: No unit test for this one because
+   of the timeout)
 */
 
-    //Code Here
+for (var i=1; i<=5; i++) {
+(function counter(i){
+    setTimeout( function timer(){
+        console.log(i);
+    }, 1000 );
+  })(i);
+};
 
 
 
 //Next Problem
 
 
+var funcArray = [];
+for( var i = 0; i < 6; i++ ){
+ 	(function( i ){
+ 		funcArray.push(
+ 			function(){ console.log( i ); }
+ 		);
+ 	})( i );
+ }
 
-/*
-  Make the following code work
 
   funcArray[0]() //0
   funcArray[1]() //1
@@ -161,5 +176,5 @@ function fnCounter(function, N) {
   funcArray[4]() //4
   funcArray[5]() //5
 
-  *Hint: Don't let this fool you. Break down what's really happening here.
+/*  *Hint: Don't let this fool you. Break down what's really happening here.
 */
